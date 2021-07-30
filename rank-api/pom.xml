@@ -10,7 +10,7 @@
     <groupId>com.fei.rank</groupId>
     <artifactId>rank-api</artifactId>
     <version>1.0.0.RELEASE</version>
-    <name>api</name>
+    <name>rank-api</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
