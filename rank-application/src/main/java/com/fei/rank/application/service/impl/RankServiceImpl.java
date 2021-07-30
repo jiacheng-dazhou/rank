@@ -29,6 +29,7 @@ public class RankServiceImpl implements RankService {
     @Override
     public List<String> getAllIndustryName(QueryTopTen queryTopTen) {
         EmployeeEntity employee = redisService.getEmployeeByEmpId(employee_key);
+        EmployeeEntity employeeByHash = redisService.getEmployeeByHash(employee.getEmployeeId());
         if(StringUtils.isNotBlank(queryTopTen.getStatDate())){
             List<String> list=rankReportDao.getAllIndustryName(queryTopTen.getStatDate(),queryTopTen.getBusinessType());
             return list;
