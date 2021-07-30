@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fei.rank.application.dao.RankReportDao">
+    <select id="getAllIndustryName" resultType="java.lang.String">
+        select industry_name
+        from rank
+        where stat_date=#{statDate} and industry_name !='NULL' and business_type=#{businessType} and rk='1'
+        group by industry_name
+    </select>
+</mapper>
