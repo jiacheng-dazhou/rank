@@ -24,11 +24,11 @@ public class RankServiceImpl implements RankService {
     @Autowired
     private RedisService redisService;
 
+    private static final String employee_key = "EMPLOYEE_KEY";
+
     @Override
     public List<String> getAllIndustryName(QueryTopTen queryTopTen) {
-        FeiShuUserInfoView userInfoView = redisService.getEmployeeByEmpId("88ab995a");
-        String key = redisService.getKey();
-        EmployeeEntity employee = JSONObject.parseObject(key, EmployeeEntity.class);
+        EmployeeEntity employee = redisService.getEmployeeByEmpId(employee_key);
         if(StringUtils.isNotBlank(queryTopTen.getStatDate())){
             List<String> list=rankReportDao.getAllIndustryName(queryTopTen.getStatDate(),queryTopTen.getBusinessType());
             return list;

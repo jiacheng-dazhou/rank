@@ -1,6 +1,8 @@
 package com.fei.rank.application.redis.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ecsage.redis.service.SingleJedisTemplate;
+import com.fei.rank.application.entity.EmployeeEntity;
 import com.fei.rank.application.redis.RedisService;
 import com.fei.rank.application.support.FeiShuUserInfoView;
 import org.apache.commons.lang3.StringUtils;
@@ -16,33 +18,13 @@ public class RedisServiceImpl implements RedisService {
     @Qualifier("rankRedis")
     private SingleJedisTemplate jedisTemplate;
 
-    private static final String employee = "EMPLOYEE";
-
-    private static final String employee_key = "EMPLOYEE_KEY";
-
-    private static final String subject = "fs-ecsage-02";
-
     @Override
-    public FeiShuUserInfoView getEmployeeByEmpId(String employeeId) {
-        if(StringUtils.isBlank(employeeId)){
-            return null;
-        }
+    public EmployeeEntity getEmployeeByEmpId(String employeeId) {
         try {
-            Object o = jedisTemplate.hash().get(employee, employeeId);
-            FeiShuUserInfoView view=(FeiShuUserInfoView) o;
-            return view;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public String getKey() {
-        try {
-            Object o = jedisTemplate.value().get(employee_key);
+            Object o = jedisTemplate.value().get(employeeId);
             String view=(String) o;
-            return view;
+            EmployeeEntity employee = JSONObject.parseObject(view, EmployeeEntity.class);
+            return employee;
         }catch (Exception e){
             e.printStackTrace();
         }

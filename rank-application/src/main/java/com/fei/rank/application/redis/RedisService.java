@@ -1,16 +1,12 @@
 package com.fei.rank.application.redis;
 
 
-import com.fei.rank.application.support.FeiShuUserInfoView;
+import com.fei.rank.application.entity.EmployeeEntity;
 
 public interface RedisService {
+
     /**
      * 根据员工id获取员工信息
      */
-    FeiShuUserInfoView getEmployeeByEmpId(String employeeId);
-
-    /**
-     * 测试
-     */
-    String getKey();
+    EmployeeEntity getEmployeeByEmpId(String employeeId);
 }
