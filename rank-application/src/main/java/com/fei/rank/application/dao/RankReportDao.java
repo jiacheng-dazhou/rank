@@ -9,4 +9,5 @@ public interface RankReportDao {
      * 获取所有行业名称
      */
     List<String> getAllIndustryName(@Param("statDate") String statDate, @Param("businessType") String businessType);
+
 }
