@@ -1,9 +1,9 @@
 package com.fei.rank.application.config;
 
-import com.ecsage.redis.service.SingleJedisTemplate;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fei.rank.application.redis.impl.SingleJedisTemplate;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

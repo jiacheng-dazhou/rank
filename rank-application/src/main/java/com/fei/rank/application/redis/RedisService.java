@@ -1,22 +1,31 @@
 package com.fei.rank.application.redis;
 
+import org.springframework.data.redis.core.*;
+import org.springframework.stereotype.Repository;
 
-import com.fei.rank.application.entity.EmployeeEntity;
-
+@Repository
 public interface RedisService {
+    ValueOperations value();
 
-    /**
-     * 根据员工id获取员工信息
-     */
-    EmployeeEntity getEmployeeByEmpId(String employeeId);
+    HashOperations hash();
 
-    /**
-     * 存入员工信息，hash存储
-     */
-    void pushEmployeeToHash(String employeeId,EmployeeEntity employeeEntity);
+    ListOperations list();
 
-    /**
-     * 根据员工id获取员工信息，hash存储
-     */
-    EmployeeEntity getEmployeeByHash(String employeeId);
+    SetOperations set();
+
+    ZSetOperations zSet();
+
+    RedisTemplate template();
+
+    ValueOperations value(String var1);
+
+    HashOperations hash(String var1);
+
+    ListOperations list(String var1);
+
+    SetOperations set(String var1);
+
+    ZSetOperations zSet(String var1);
+
+    RedisTemplate template(String var1);
 }

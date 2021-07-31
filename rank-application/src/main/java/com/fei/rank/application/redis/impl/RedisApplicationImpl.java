@@ -1,9 +1,8 @@
 package com.fei.rank.application.redis.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ecsage.redis.service.SingleJedisTemplate;
 import com.fei.rank.application.entity.EmployeeEntity;
-import com.fei.rank.application.redis.RedisService;
+import com.fei.rank.application.redis.RedisApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class RedisServiceImpl implements RedisService {
+public class RedisApplicationImpl implements RedisApplication {
 
     @Autowired
     @Qualifier("rankRedis")
